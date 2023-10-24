@@ -19,22 +19,37 @@ body {
 }
 
 .image {
+  position: relative;
   width: 40%;
   height: 100%;
   background: url("./assets/mountains.jpg");
+  background-size: cover;
   z-index: 2;
 }
+.banner {
+  gap: 10px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100px;
+  color: #fcfcfc;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 50px);
+}
+.banner > svg {
+  width: 50px;
+  fill: #fcfcfc;
+}
 .form-container {
-  /* width: 60%; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 40px;
   padding: 30px;
   padding-right: 0;
-  margin-top: 200px;
-  margin-bottom: 200px;
 }
 .form-container > p:nth-child(1) {
   width: 60%;
@@ -74,6 +89,9 @@ form {
 form > h1 {
   width: 80%;
   text-transform: none;
+  justify-self: flex-start;
+}
+label::after {
 }
 form > * {
   width: 40%;
@@ -86,7 +104,7 @@ form > * {
 input {
   border: 1px solid gray;
   border-radius: 5px;
-  height: 30px;
+  height: 40px;
   padding: 5px;
 }
 
@@ -101,19 +119,30 @@ a {
 a:visited {
   color: rgb(97, 137, 160);
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .image {
     width: 0;
+    opacity: 0;
   }
   .form-container {
-    /* padding: 0; */
+    padding: 0;
+    align-items: center;
+  }
+  .form-container > p:last-child {
+    padding-bottom: 50px;
   }
   .form-container > p:nth-child(1) {
     width: 90%;
+    text-align: center;
+    padding-top: 400px;
   }
   form > * {
     width: 90%;
   }
-  body {
+  form {
+    margin: 0;
   }
+}
+input#confirm-password:focus:invalid {
+  outline: 2px solid red;
 }
